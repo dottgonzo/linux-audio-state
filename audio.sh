@@ -95,4 +95,4 @@ fi
 done
 
 
-echo "{\"audio\":[$audioins]}"
+echo "{\"audioInputs\":[$audioins]}"

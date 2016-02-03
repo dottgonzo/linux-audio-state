@@ -3,8 +3,20 @@ import * as child_process from "child_process";
 
 let exec = child_process.exec;
 
+interface Channel {
+    dev: string;
+    active: boolean;
+}
+
+interface Answer {
+    label: string;
+    dev: string;
+    pulsename: string;
+    active: boolean;
+    channels: Channel[]
+}
 export = function() {
-    return new Promise(function(resolve, reject) {
+    return new Promise<Answer[]>(function(resolve, reject) {
         let callbacked = false;
         let timo = setTimeout(function() {
             if (!callbacked) {
@@ -26,7 +38,7 @@ export = function() {
             } else {
                 callbacked = true;
                 clearTimeout(timo);
-                resolve(stdout);
+                resolve(JSON.parse(stdout.toString("utf-8")));
             }
 
         });

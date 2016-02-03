@@ -29,7 +29,7 @@ else
 c_active='false'
 fi
 
-ch_tmp='{"dev":"'$c_in'","active":"'$c_active'"}'
+ch_tmp='{"dev":"'$c_in'","active":'$c_active'}'
 
 if [[ $channelck == 0 ]];then
 echo -n "$ch_tmp"
@@ -79,7 +79,7 @@ a_active='false'
 fi
 
 
-        audioin='{"label":"'$alabel'","dev":"'$adev'","pulsename":"'$pulse_name'","active":"'$a_active'","channels":['$(echo $(papact "$pulse_name"))']}'
+        audioin='{"label":"'$alabel'","dev":"'$adev'","pulsename":"'$pulse_name'","active":'$a_active',"channels":['$(echo $(papact "$pulse_name"))']}'
 
 		if [[ "$audioins" ]]; then
 		audioins="$audioins,$audioin"
@@ -95,4 +95,4 @@ fi
 done
 
 
-echo "{\"audioInputs\":[$audioins]}"
+echo "[$audioins]"

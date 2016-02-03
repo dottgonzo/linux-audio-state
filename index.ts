@@ -13,7 +13,7 @@ interface Answer {
     dev: string;
     pulsename: string;
     active: boolean;
-    channels: Channel[]
+    channels: Channel[];
 }
 export = function() {
     return new Promise<Answer[]>(function(resolve, reject) {

@@ -38,8 +38,7 @@ export default function las() {
             } else {
                 callbacked = true;
                 clearTimeout(timo);
-                console.log("aa",stdout)
-                resolve(JSON.parse(stdout.toString("utf-8")));
+                resolve(JSON.parse(stdout.toString()));
             }
 
         });

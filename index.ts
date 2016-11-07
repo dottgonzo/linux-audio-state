@@ -15,7 +15,7 @@ interface Answer {
     active: boolean;
     channels: Channel[];
 }
-export = function() {
+export default function las() {
     return new Promise<Answer[]>(function(resolve, reject) {
         let callbacked = false;
         let timo = setTimeout(function() {
@@ -38,6 +38,7 @@ export = function() {
             } else {
                 callbacked = true;
                 clearTimeout(timo);
+                console.log("aa",stdout)
                 resolve(JSON.parse(stdout.toString("utf-8")));
             }
 

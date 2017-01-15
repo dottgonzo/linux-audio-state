@@ -14,6 +14,7 @@ interface Answer {
     pulsename: string;
     active: boolean;
     channels: Channel[];
+    card_id:number
 }
 export default function las() {
     return new Promise<Answer[]>(function(resolve, reject) {

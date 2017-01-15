@@ -77,9 +77,9 @@ a_active='true'
 else
 a_active='false'
 fi
+card_id=$(cat /proc/asound/cards|grep "$alabel"|grep "\["|awk {'print($1)'})
 
-
-        audioin='{"label":"'$alabel'","dev":"'$adev'","pulsename":"'$pulse_name'","active":'$a_active',"channels":['$(echo $(papact "$pulse_name"))']}'
+        audioin='{"card_id":'$card_id',"label":"'$alabel'","dev":"'$adev'","pulsename":"'$pulse_name'","active":'$a_active',"channels":['$(echo $(papact "$pulse_name"))']}'
 
 		if [[ "$audioins" ]]; then
 		audioins="$audioins,$audioin"
